@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprawdź opcje wyjścia z długów — Kancelaria Nowacka & Górnicki</title>
+<meta name="description" content="Bezpłatna, anonimowa analiza Twojej sytuacji finansowej. Sprawdź w 2 minuty jakie masz opcje restrukturyzacji. Bez żargonu, bez zobowiązań.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;
+  --warm:#3d3529;
+  --olive:#4a5a3a;
+  --olive-light:#6b7d56;
+  --sand:#f4f0e8;
+  --sand-dark:#e8e2d6;
+  --cream:#faf8f4;
+  --rust:#8b5e3c;
+  --rust-light:#a67c5b;
+  --alert:#b84c2a;
+  --alert-bg:#fdf0ec;
+  --safe:#3a6b4a;
+  --safe-bg:#eef5f0;
+  --info:#3b6b8a;
+  --info-bg:#edf4f8;
+  --gray:#8a8578;
+  --gray-light:#b5b0a6;
+  --white:#ffffff;
+  --shadow:0 1px 3px rgba(26,26,24,.06),0 6px 16px rgba(26,26,24,.04);
+  --shadow-lg:0 4px 12px rgba(26,26,24,.08),0 16px 40px rgba(26,26,24,.06);
+  --radius:6px;
+  --radius-lg:10px;
+  --ff-display:'Source Serif 4',Georgia,serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --transition:0.25s cubic-bezier(.4,0,.2,1);
+}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--cream);line-height:1.6;overflow-x:hidden}
+
+/* UTILITY */
+.container{max-width:640px;margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ============================================ */
+/* HERO */
+/* ============================================ */
+.hero{
+  position:relative;
+  padding:72px 24px 56px;
+  background:linear-gradient(168deg,var(--cream) 0%,var(--sand) 60%,var(--sand-dark) 100%);
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23d4cfc4' stroke-width='.3' fill='none'/%3E%3C/svg%3E");
+  opacity:.35;pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;max-width:580px;margin:0 auto}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--olive);background:rgba(74,90,58,.08);
+  padding:6px 14px;border-radius:20px;margin-bottom:24px;
+}
+.hero-badge svg{width:14px;height:14px;fill:var(--olive)}
+.hero h1{
+  font-family:var(--ff-display);font-size:clamp(1.75rem,5vw,2.5rem);
+  font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:16px;
+  letter-spacing:-.01em;
+}
+.hero h1 em{font-style:normal;color:var(--olive)}
+.hero-sub{
+  font-size:1.05rem;color:var(--warm);line-height:1.55;
+  max-width:480px;margin:0 auto 32px;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--ff-body);font-size:1rem;font-weight:600;
+  color:var(--white);background:var(--olive);
+  padding:16px 32px;border-radius:var(--radius);border:none;cursor:pointer;
+  box-shadow:0 2px 8px rgba(74,90,58,.25);
+  transition:all var(--transition);
+  text-decoration:none;
+}
+.hero-cta:hover{background:var(--olive-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(74,90,58,.3)}
+.hero-cta:active{transform:translateY(0)}
+.hero-cta svg{width:18px;height:18px;fill:currentColor;transition:transform var(--transition)}
+.hero-cta:hover svg{transform:translateX(3px)}
+
+/* SOCIAL PROOF BAR */
+.proof-bar{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:24px;
+  margin-top:40px;padding-top:28px;
+  border-top:1px solid rgba(74,90,58,.12);
+}
+.proof-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:.85rem;color:var(--warm);font-weight:500;
+}
+.proof-item strong{color:var(--olive);font-size:1.1rem;font-weight:700}
+
+/* ============================================ */
+/* QUIZ SECTION */
+/* ============================================ */
+.quiz-section{
+  padding:56px 24px 64px;
+  background:var(--white);
+  border-top:1px solid var(--sand-dark);
+}
+.quiz-wrap{max-width:560px;margin:0 auto}
+.quiz-header{text-align:center;margin-bottom:40px}
+.quiz-header h2{
+  font-family:var(--ff-display);font-size:1.5rem;font-weight:600;
+  color:var(--ink);margin-bottom:8px;
+}
+.quiz-header p{font-size:.9rem;color:var(--gray)}
+
+/* PROGRESS BAR */
+.progress-wrap{margin-bottom:36px}
+.progress-label{display:flex;justify-content:space-between;font-size:.8rem;color:var(--gray);margin-bottom:8px}
+.progress-track{height:4px;background:var(--sand);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--olive);border-radius:2px;transition:width .4s ease}
+
+/* QUESTION */
+.question{display:none;animation:fadeUp .35s ease}
+.question.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.question-title{
+  font-family:var(--ff-display);font-size:1.2rem;font-weight:600;
+  color:var(--ink);margin-bottom:20px;line-height:1.35;
+}
+.options{display:flex;flex-direction:column;gap:10px}
+.option{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;border:1.5px solid var(--sand-dark);border-radius:var(--radius);
+  cursor:pointer;transition:all var(--transition);background:var(--cream);
+  font-size:.95rem;color:var(--ink);
+}
+.option:hover{border-color:var(--olive-light);background:rgba(74,90,58,.03)}
+.option.selected{border-color:var(--olive);background:rgba(74,90,58,.06);font-weight:500}
+.option .radio{
+  width:20px;height:20px;border-radius:50%;border:2px solid var(--gray-light);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  transition:all var(--transition);
+}
+.option.selected .radio{border-color:var(--olive);background:var(--olive)}
+.option.selected .radio::after{content:'';width:8px;height:8px;background:var(--white);border-radius:50%}
+
+/* CHECKBOX VARIANT */
+.option .check{
+  width:20px;height:20px;border-radius:4px;border:2px solid var(--gray-light);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  transition:all var(--transition);font-size:12px;color:var(--white);
+}
+.option.selected .check{border-color:var(--olive);background:var(--olive)}
+
+/* NAV BUTTONS */
+.quiz-nav{display:flex;gap:12px;margin-top:28px}
+.btn-back{
+  flex:0 0 auto;padding:12px 20px;border:1.5px solid var(--sand-dark);
+  border-radius:var(--radius);background:var(--white);color:var(--gray);
+  font-size:.9rem;font-weight:500;cursor:pointer;transition:all var(--transition);
+  font-family:var(--ff-body);
+}
+.btn-back:hover{border-color:var(--gray-light);color:var(--ink)}
+.btn-next{
+  flex:1;padding:12px 24px;border:none;border-radius:var(--radius);
+  background:var(--olive);color:var(--white);font-size:.95rem;font-weight:600;
+  cursor:pointer;transition:all var(--transition);font-family:var(--ff-body);
+  opacity:.4;pointer-events:none;
+}
+.btn-next.enabled{opacity:1;pointer-events:auto}
+.btn-next.enabled:hover{background:var(--olive-light)}
+
+/* ============================================ */
+/* LEAD CAPTURE (after quiz) */
+/* ============================================ */
+.lead-capture{display:none;animation:fadeUp .4s ease}
+.lead-capture.active{display:block}
+.lead-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(74,90,58,.08);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.lead-icon svg{width:28px;height:28px;fill:var(--olive)}
+.lead-capture h2{
+  font-family:var(--ff-display);font-size:1.35rem;font-weight:600;
+  text-align:center;margin-bottom:6px;color:var(--ink);
+}
+.lead-capture .lead-sub{
+  text-align:center;font-size:.9rem;color:var(--gray);margin-bottom:28px;line-height:1.5;
+}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.8rem;font-weight:600;color:var(--warm);margin-bottom:6px}
+.form-group input{
+  width:100%;padding:13px 16px;border:1.5px solid var(--sand-dark);border-radius:var(--radius);
+  font-size:1rem;font-family:var(--ff-body);color:var(--ink);background:var(--cream);
+  transition:border-color var(--transition);
+}
+.form-group input:focus{outline:none;border-color:var(--olive);background:var(--white)}
+.form-group input::placeholder{color:var(--gray-light)}
+.form-group .error-msg{font-size:.78rem;color:var(--alert);margin-top:4px;display:none}
+.form-group.has-error input{border-color:var(--alert)}
+.form-group.has-error .error-msg{display:block}
+
+.consent{display:flex;align-items:flex-start;gap:10px;margin:20px 0 24px;font-size:.8rem;color:var(--gray);line-height:1.45}
+.consent input[type=checkbox]{
+  margin-top:2px;width:18px;height:18px;accent-color:var(--olive);flex-shrink:0;cursor:pointer;
+}
+.consent a{color:var(--olive);text-decoration:underline}
+
+.btn-submit{
+  width:100%;padding:15px 24px;border:none;border-radius:var(--radius);
+  background:var(--olive);color:var(--white);font-size:1rem;font-weight:600;
+  cursor:pointer;transition:all var(--transition);font-family:var(--ff-body);
+}
+.btn-submit:hover{background:var(--olive-light)}
+.btn-submit:disabled{opacity:.4;cursor:default}
+
+.privacy-note{
+  display:flex;align-items:center;gap:6px;justify-content:center;
+  margin-top:14px;font-size:.78rem;color:var(--gray);
+}
+.privacy-note svg{width:14px;height:14px;fill:var(--gray)}
+
+/* ============================================ */
+/* RESULT SCREEN */
+/* ============================================ */
+.result-screen{display:none;animation:fadeUp .45s ease}
+.result-screen.active{display:block}
+
+.result-card{
+  padding:28px 24px;border-radius:var(--radius-lg);margin-bottom:24px;
+  border-left:4px solid transparent;
+}
+.result-card.hot{background:var(--alert-bg);border-left-color:var(--alert)}
+.result-card.warm{background:var(--safe-bg);border-left-color:var(--safe)}
+.result-card.cold{background:var(--info-bg);border-left-color:var(--info)}
+.result-badge{
+  display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.03em;
+  padding:4px 10px;border-radius:4px;margin-bottom:12px;text-transform:uppercase;
+}
+.result-card.hot .result-badge{background:rgba(184,76,42,.12);color:var(--alert)}
+.result-card.warm .result-badge{background:rgba(58,107,74,.12);color:var(--safe)}
+.result-card.cold .result-badge{background:rgba(59,107,138,.12);color:var(--info)}
+.result-card h3{
+  font-family:var(--ff-display);font-size:1.2rem;font-weight:600;
+  margin-bottom:10px;color:var(--ink);line-height:1.3;
+}
+.result-card p{font-size:.9rem;color:var(--warm);line-height:1.55;margin-bottom:16px}
+.result-card .result-reco{
+  font-size:.85rem;font-weight:600;color:var(--ink);
+  padding:10px 14px;background:rgba(255,255,255,.6);border-radius:var(--radius);
+  margin-bottom:16px;
+}
+.btn-consult{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border:none;border-radius:var(--radius);
+  font-size:.95rem;font-weight:600;cursor:pointer;
+  transition:all var(--transition);font-family:var(--ff-body);text-decoration:none;
+}
+.result-card.hot .btn-consult{background:var(--alert);color:var(--white)}
+.result-card.hot .btn-consult:hover{background:#a0401f}
+.result-card.warm .btn-consult{background:var(--safe);color:var(--white)}
+.result-card.warm .btn-consult:hover{background:#2f5a3d}
+.result-card.cold .btn-consult{background:var(--info);color:var(--white)}
+.result-card.cold .btn-consult:hover{background:#2f5a75}
+
+/* WHAT HAPPENS NEXT */
+.next-steps{margin-top:8px}
+.next-steps h4{
+  font-family:var(--ff-display);font-size:1.05rem;font-weight:600;
+  margin-bottom:16px;color:var(--ink);
+}
+.step{display:flex;gap:14px;margin-bottom:16px}
+.step-num{
+  width:28px;height:28px;border-radius:50%;background:var(--olive);
+  color:var(--white);font-size:.75rem;font-weight:700;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.step-text{font-size:.88rem;color:var(--warm);line-height:1.5}
+.step-text strong{color:var(--ink)}
+
+/* ============================================ */
+/* TRUST SECTION */
+/* ============================================ */
+.trust-section{
+  padding:48px 24px;background:var(--sand);
+  border-top:1px solid var(--sand-dark);
+}
+.trust-inner{max-width:560px;margin:0 auto;text-align:center}
+.trust-inner h3{
+  font-family:var(--ff-display);font-size:1.15rem;font-weight:600;
+  color:var(--ink);margin-bottom:24px;
+}
+.trust-items{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.trust-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:.85rem;color:var(--warm);
+}
+.trust-item svg{width:20px;height:20px;fill:var(--olive);flex-shrink:0}
+
+/* AUTHOR */
+.author-section{
+  padding:40px 24px;background:var(--white);
+  border-top:1px solid var(--sand-dark);
+}
+.author-inner{
+  max-width:560px;margin:0 auto;
+  display:flex;gap:20px;align-items:center;
+}
+.author-photo{
+  width:72px;height:72px;border-radius:50%;background:var(--sand);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-display);font-size:1.4rem;font-weight:700;color:var(--olive);
+  border:2px solid var(--sand-dark);
+}
+.author-info h4{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.author-info .author-title{font-size:.8rem;color:var(--olive);font-weight:500;margin-bottom:6px}
+.author-info p{font-size:.82rem;color:var(--gray);line-height:1.45}
+
+/* FOOTER */
+footer{
+  padding:24px;text-align:center;
+  font-size:.75rem;color:var(--gray);
+  background:var(--cream);border-top:1px solid var(--sand-dark);
+}
+footer a{color:var(--gray);text-decoration:underline}
+
+/* ============================================ */
+/* EXIT-INTENT POPUP */
+/* ============================================ */
+.popup-overlay{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(26,26,24,.65);backdrop-filter:blur(3px);
+  align-items:center;justify-content:center;padding:24px;
+}
+.popup-overlay.visible{display:flex}
+.popup{
+  width:100%;max-width:440px;background:var(--white);
+  border-radius:var(--radius-lg);padding:36px 28px;
+  box-shadow:var(--shadow-lg);position:relative;
+  animation:popIn .3s ease;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.popup-close{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;
+  border:none;background:var(--sand);border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--gray);transition:background var(--transition);
+}
+.popup-close:hover{background:var(--sand-dark)}
+.popup h3{
+  font-family:var(--ff-display);font-size:1.2rem;font-weight:600;
+  text-align:center;margin-bottom:8px;color:var(--ink);
+}
+.popup p{text-align:center;font-size:.88rem;color:var(--gray);margin-bottom:20px;line-height:1.5}
+.popup input{
+  width:100%;padding:13px 16px;border:1.5px solid var(--sand-dark);
+  border-radius:var(--radius);font-size:1rem;font-family:var(--ff-body);
+  margin-bottom:12px;color:var(--ink);background:var(--cream);
+}
+.popup input:focus{outline:none;border-color:var(--olive)}
+.popup .btn-popup{
+  width:100%;padding:14px;border:none;border-radius:var(--radius);
+  background:var(--olive);color:var(--white);font-size:.95rem;font-weight:600;
+  cursor:pointer;font-family:var(--ff-body);transition:background var(--transition);
+}
+.popup .btn-popup:hover{background:var(--olive-light)}
+.popup .popup-proof{
+  text-align:center;font-size:.78rem;color:var(--gray);margin-top:12px;font-style:italic;
+}
+.popup .popup-dismiss{
+  display:block;text-align:center;margin-top:12px;font-size:.78rem;
+  color:var(--gray-light);cursor:pointer;border:none;background:none;
+  font-family:var(--ff-body);
+}
+.popup .popup-dismiss:hover{color:var(--gray)}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero{padding:56px 20px 44px}
+  .proof-bar{gap:16px}
+  .proof-item{font-size:.78rem}
+  .author-inner{flex-direction:column;text-align:center}
+  .trust-items{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Bezpłatna analiza · 2 minuty
+    </div>
+    <h1>Sprawdź w 2 minuty jakie masz <em>opcje wyjścia z długów</em></h1>
+    <p class="hero-sub">Bezpłatna, anonimowa analiza Twojej sytuacji. Bez żargonu. Bez zobowiązań.</p>
+    <a href="#quiz" class="hero-cta" id="startQuiz">
+      Rozpocznij bezpłatną analizę
+      <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+    </a>
+    <div class="proof-bar">
+      <div class="proof-item"><strong>1 000+</strong> przeprowadzonych spraw</div>
+      <div class="proof-item"><strong>97%</strong> skuteczności</div>
+      <div class="proof-item"><strong>300 mln zł</strong> umorzonych długów</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h2>Twoja anonimowa analiza</h2>
+      <p>Odpowiedz na 5 pytań — zobaczysz jakie masz opcje.</p>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progressText">Pytanie 1 z 5</span><span id="progressPct">20%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressBar" style="width:20%"></div></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="question active" data-q="1" data-type="single">
+      <div class="question-title">Kim jesteś?</div>
+      <div class="options">
+        <div class="option" data-val="jdg"><span class="radio"></span>Prowadzę jednoosobową działalność (JDG)</div>
+        <div class="option" data-val="rolnik"><span class="radio"></span>Jestem rolnikiem</div>
+        <div class="option" data-val="spolka"><span class="radio"></span>Prowadzę spółkę</div>
+        <div class="option" data-val="prywatna"><span class="radio"></span>Nie prowadzę firmy (osoba prywatna)</div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-next" id="next1">Dalej →</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question" data-q="2" data-type="single">
+      <div class="question-title">Jaka jest przybliżona kwota Twoich długów?</div>
+      <div class="options">
+        <div class="option" data-val="do50k"><span class="radio"></span>Do 50 000 zł</div>
+        <div class="option" data-val="50k-200k"><span class="radio"></span>50 000 – 200 000 zł</div>
+        <div class="option" data-val="200k-500k"><span class="radio"></span>200 000 – 500 000 zł</div>
+        <div class="option" data-val="pow500k"><span class="radio"></span>Powyżej 500 000 zł</div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goBack()">← Wróć</button>
+        <button class="btn-next" id="next2">Dalej →</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question" data-q="3" data-type="multi">
+      <div class="question-title">Komu jesteś winien? <span style="font-weight:400;font-size:.85rem;color:var(--gray)">(możesz zaznaczyć kilka)</span></div>
+      <div class="options">
+        <div class="option" data-val="bank"><span class="check"></span>Bank (kredyty, pożyczki)</div>
+        <div class="option" data-val="zus"><span class="check"></span>ZUS</div>
+        <div class="option" data-val="us"><span class="check"></span>Urząd Skarbowy</div>
+        <div class="option" data-val="leasing"><span class="check"></span>Firmy leasingowe</div>
+        <div class="option" data-val="dostawcy"><span class="check"></span>Dostawcy / kontrahenci</div>
+        <div class="option" data-val="inne"><span class="check"></span>Inne</div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goBack()">← Wróć</button>
+        <button class="btn-next" id="next3">Dalej →</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question" data-q="4" data-type="single">
+      <div class="question-title">Czy masz aktywne postępowanie egzekucyjne (komornik)?</div>
+      <div class="options">
+        <div class="option" data-val="tak"><span class="radio"></span>Tak, komornik już działa</div>
+        <div class="option" data-val="wezwanie"><span class="radio"></span>Dostałem wezwanie, ale jeszcze nie komornik</div>
+        <div class="option" data-val="upomnienia"><span class="radio"></span>Na razie tylko upomnienia</div>
+        <div class="option" data-val="nie_wiem"><span class="radio"></span>Nie wiem</div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goBack()">← Wróć</button>
+        <button class="btn-next" id="next4">Dalej →</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question" data-q="5" data-type="multi">
+      <div class="question-title">Co chcesz ochronić? <span style="font-weight:400;font-size:.85rem;color:var(--gray)">(możesz zaznaczyć kilka)</span></div>
+      <div class="options">
+        <div class="option" data-val="dom"><span class="check"></span>Mieszkanie / dom</div>
+        <div class="option" data-val="ziemia"><span class="check"></span>Ziemię rolną</div>
+        <div class="option" data-val="maszyny"><span class="check"></span>Maszyny / ciągnik / pojazdy</div>
+        <div class="option" data-val="firma"><span class="check"></span>Firmę (chcę dalej działać)</div>
+        <div class="option" data-val="wynagrodzenie"><span class="check"></span>Wynagrodzenie / emeryturę</div>
+        <div class="option" data-val="inne"><span class="check"></span>Inne</div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goBack()">← Wróć</button>
+        <button class="btn-next" id="next5">Zobacz wynik →</button>
+      </div>
+    </div>
+
+    <!-- LEAD CAPTURE -->
+    <div class="lead-capture" id="leadCapture">
+      <div class="lead-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </div>
+      <h2>Twoja analiza jest gotowa</h2>
+      <p class="lead-sub">Podaj dane kontaktowe, a wyślemy Ci spersonalizowany raport z oceną sytuacji i możliwymi ścieżkami działania.</p>
+
+      <form id="leadForm" onsubmit="return handleSubmit(event)">
+        <div class="form-group">
+          <label for="fname">Imię</label>
+          <input type="text" id="fname" placeholder="np. Jan" autocomplete="given-name" required>
+          <div class="error-msg">Podaj swoje imię</div>
+        </div>
+        <div class="form-group">
+          <label for="femail">Adres e-mail</label>
+          <input type="email" id="femail" placeholder="np. jan@gmail.com" autocomplete="email" required>
+          <div class="error-msg">Podaj prawidłowy adres e-mail</div>
+        </div>
+        <div class="form-group">
+          <label for="fphone">Telefon</label>
+          <input type="tel" id="fphone" placeholder="np. 600 100 200" autocomplete="tel">
+          <div class="error-msg">Podaj numer telefonu</div>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">Zgadzam się na przetwarzanie moich danych osobowych w celu przygotowania analizy. <a href="#" target="_blank">Polityka prywatności</a></label>
+        </div>
+        <button type="submit" class="btn-submit">Wyślij mi raport</button>
+        <div class="privacy-note">
+          <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          Twoje dane są poufne. Nie udostępniamy ich nikomu.
+        </div>
+      </form>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-card" id="resultCard">
+        <div class="result-badge" id="resultBadge"></div>
+        <h3 id="resultTitle"></h3>
+        <p id="resultText"></p>
+        <div class="result-reco" id="resultReco"></div>
+        <a href="#" class="btn-consult" id="resultCTA"></a>
+      </div>
+      <div class="next-steps">
+        <h4>Co teraz się wydarzy:</h4>
+        <div class="step"><div class="step-num">1</div><div class="step-text"><strong>W ciągu 2 minut</strong> otrzymasz email z analizą Twojej sytuacji.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Przez 3 tygodnie</strong> dostaniesz 5 maili z konkretnymi krokami — bez presji.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Gdy będziesz gotowy</strong> — umów się na bezpłatną 15-minutową rozmowę z doradcą.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<section class="trust-section">
+  <div class="trust-inner">
+    <h3>Dlaczego warto nam zaufać</h3>
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Licencjonowani doradcy restrukturyzacyjni
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        Mówimy prostym językiem — nie żargonem
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        Bez ukrytych kosztów — jasne warunki
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+        Odpowiadamy w ciągu 2 godzin
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTHOR ===== -->
+<section class="author-section">
+  <div class="author-inner">
+    <div class="author-photo">KN</div>
+    <div class="author-info">
+      <h4>Karolina Nowacka</h4>
+      <div class="author-title">Doradca restrukturyzacyjny · Radca prawny</div>
+      <p>Specjalizuję się w ochronie majątku osób zadłużonych — rolników, właścicieli firm i osób prywatnych. Chronię to, co Twoje.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  &copy; 2026 Kancelaria Nowacka & Górnicki · <a href="#">Polityka prywatności</a> · <a href="#">Regulamin</a>
+</footer>
+
+<!-- ===== EXIT-INTENT POPUP ===== -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <h3>Zanim wyjdziesz — weź to ze sobą</h3>
+    <p>Bezpłatna analiza Twojej sytuacji czeka. 2 minuty, zero zobowiązań.</p>
+    <input type="email" id="popupEmail" placeholder="Twój najlepszy e-mail">
+    <button class="btn-popup" onclick="submitPopup()">Tak, wyślij mi analizę</button>
+    <div class="popup-proof">„Najlepsza decyzja jaką podjęłam" — Zofia z Lublina</div>
+    <button class="popup-dismiss" onclick="closePopup()">Nie, dziękuję</button>
+  </div>
+</div>
+
+<script>
+// ============================================
+// QUIZ ENGINE
+// ============================================
+const answers = {};
+let current = 1;
+const totalQ = 5;
+
+// Option click handlers
+document.querySelectorAll('.question').forEach(q => {
+  const type = q.dataset.type;
+  q.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const qNum = parseInt(q.dataset.q);
+      if (type === 'single') {
+        q.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        opt.classList.toggle('selected');
+        answers[qNum] = opt.dataset.val;
+      } else {
+        opt.classList.toggle('selected');
+        answers[qNum] = Array.from(q.querySelectorAll('.option.selected')).map(o => o.dataset.val);
+      }
+      updateNextBtn(qNum);
+    });
+  });
+});
+
+function updateNextBtn(qNum) {
+  const btn = document.getElementById('next' + qNum);
+  if (!btn) return;
+  const q = document.querySelector(`.question[data-q="${qNum}"]`);
+  const selected = q.querySelectorAll('.option.selected');
+  btn.classList.toggle('enabled', selected.length > 0);
+}
+
+// Next buttons
+for (let i = 1; i <= totalQ; i++) {
+  const btn = document.getElementById('next' + i);
+  if (btn) {
+    btn.addEventListener('click', () => {
+      if (!btn.classList.contains('enabled')) return;
+      if (i < totalQ) {
+        goTo(i + 1);
+      } else {
+        showLeadCapture();
+      }
+    });
+  }
+}
+
+function goTo(n) {
+  document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+  const target = document.querySelector(`.question[data-q="${n}"]`);
+  if (target) { target.classList.add('active'); current = n; }
+  updateProgress(n);
+  updateNextBtn(n);
+}
+
+function goBack() {
+  if (current > 1) goTo(current - 1);
+}
+
+function updateProgress(n) {
+  const pct = Math.round((n / totalQ) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `Pytanie ${n} z ${totalQ}`;
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+function showLeadCapture() {
+  document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+  document.querySelector('.progress-wrap').style.display = 'none';
+  document.querySelector('.quiz-header').innerHTML = '<h2>Ostatni krok</h2><p>Podaj dane — wyślemy Ci wynik analizy.</p>';
+  document.getElementById('leadCapture').classList.add('active');
+  document.getElementById('leadCapture').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ============================================
+// FORM SUBMIT
+// ============================================
+function handleSubmit(e) {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById('fname');
+  const email = document.getElementById('femail');
+  const consent = document.getElementById('consent');
+
+  // Reset
+  document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+
+  if (!name.value.trim()) { name.closest('.form-group').classList.add('has-error'); valid = false; }
+  if (!email.value.trim() || !email.value.includes('@')) { email.closest('.form-group').classList.add('has-error'); valid = false; }
+  if (!consent.checked) { valid = false; }
+
+  if (!valid) return false;
+
+  // Collect all data
+  const leadData = {
+    name: name.value,
+    email: email.value,
+    phone: document.getElementById('fphone').value,
+    answers: answers,
+    timestamp: new Date().toISOString()
+  };
+
+  console.log('LEAD DATA:', leadData);
+  // Here: send to Mailerlite / webhook / etc.
+
+  showResult();
+  return false;
+}
+
+// ============================================
+// RESULT LOGIC
+// ============================================
+function showResult() {
+  document.getElementById('leadCapture').classList.remove('active');
+  document.querySelector('.quiz-header').style.display = 'none';
+
+  const card = document.getElementById('resultCard');
+  const badge = document.getElementById('resultBadge');
+  const title = document.getElementById('resultTitle');
+  const text = document.getElementById('resultText');
+  const reco = document.getElementById('resultReco');
+  const cta = document.getElementById('resultCTA');
+
+  // Determine temperature
+  const hasKomornik = answers[4] === 'tak';
+  const highDebt = ['200k-500k','pow500k'].includes(answers[2]);
+  const mediumDebt = answers[2] === '50k-200k';
+  const lowDebt = answers[2] === 'do50k';
+  const hasWezwanie = answers[4] === 'wezwanie';
+
+  let temp;
+  if (hasKomornik || (highDebt && hasWezwanie)) {
+    temp = 'hot';
+  } else if (mediumDebt || hasWezwanie || highDebt) {
+    temp = 'warm';
+  } else {
+    temp = 'cold';
+  }
+
+  card.className = 'result-card ' + temp;
+
+  if (temp === 'hot') {
+    badge.textContent = '⚠️ Wymaga szybkiego działania';
+    title.textContent = 'Twoja sytuacja wymaga szybkiego działania.';
+    text.textContent = 'Na podstawie Twoich odpowiedzi widzimy, że każdy tydzień zwłoki może oznaczać utratę majątku. Im szybciej zaczniesz — tym więcej uda się ochronić.';
+    reco.textContent = '💡 Rekomendacja: Bezpłatna konsultacja z doradcą restrukturyzacyjnym w ciągu 48h.';
+    cta.textContent = 'Umów bezpłatną konsultację — 15 minut';
+    cta.href = '#'; // Calendly link
+  } else if (temp === 'warm') {
+    badge.textContent = '✅ Masz jeszcze czas';
+    title.textContent = 'Masz jeszcze czas, ale nie za dużo.';
+    text.textContent = 'Twoja sytuacja kwalifikuje się do restrukturyzacji. Im wcześniej zaczniesz, tym więcej zachowasz. Wysłaliśmy Ci raport na podany email.';
+    reco.textContent = '💡 Rekomendacja: Przeczytaj raport emailowy — pokażemy Ci krok po kroku co robić.';
+    cta.textContent = 'Sprawdź skrzynkę email';
+    cta.href = '#';
+  } else {
+    badge.textContent = 'ℹ️ Sytuacja pod kontrolą';
+    title.textContent = 'Twoja sytuacja nie jest jeszcze krytyczna.';
+    text.textContent = 'Warto się jednak przygotować. Wyślemy Ci materiały edukacyjne — co robić, jeśli sytuacja się pogorszy.';
+    reco.textContent = '💡 Rekomendacja: Przeczytaj materiały które wysłaliśmy na Twojego maila.';
+    cta.textContent = 'Sprawdź skrzynkę email';
+    cta.href = '#';
+  }
+
+  document.getElementById('resultScreen').classList.add('active');
+  document.getElementById('resultScreen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ============================================
+// SMOOTH SCROLL TO QUIZ
+// ============================================
+document.getElementById('startQuiz').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ============================================
+// EXIT-INTENT POPUP
+// ============================================
+let popupShown = false;
+let quizStarted = false;
+
+document.querySelectorAll('.option').forEach(o => {
+  o.addEventListener('click', () => { quizStarted = true; });
+});
+
+document.addEventListener('mouseout', function(e) {
+  if (e.clientY < 5 && !popupShown && !quizStarted && !document.getElementById('resultScreen').classList.contains('active')) {
+    document.getElementById('popupOverlay').classList.add('visible');
+    popupShown = true;
+  }
+});
+
+document.getElementById('popupOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closePopup();
+});
+
+function closePopup() {
+  document.getElementById('popupOverlay').classList.remove('visible');
+}
+
+function submitPopup() {
+  const email = document.getElementById('popupEmail').value;
+  if (email && email.includes('@')) {
+    console.log('POPUP LEAD:', email);
+    closePopup();
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Ensure first next button state
+updateNextBtn(1);
+</script>
+</body>
+</html>
